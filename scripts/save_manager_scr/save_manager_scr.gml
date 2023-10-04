@@ -11,7 +11,7 @@ function save(){
 			save: current_time
 		},
 		player: {
-			name: "Johnathon",//global.playerName,
+			name: global.playerName,
 			room_location: global.roomLocation,
 			x_loc: global.xLoc,
 			y_loc: global.yLoc,
