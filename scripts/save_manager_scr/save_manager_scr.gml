@@ -1,5 +1,3 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function save(){
 	var data = {
 		name: "save2",
@@ -13,7 +11,7 @@ function save(){
 			save: current_time
 		},
 		player: {
-			name: global.playerName,
+			name: "Johnathon",//global.playerName,
 			room_location: global.roomLocation,
 			x_loc: global.xLoc,
 			y_loc: global.yLoc,
@@ -46,8 +44,46 @@ function save(){
 	file_text_close(file)
 }
 
-function load(){}
+function load(fileName){
+	var file = file_text_open_read(fileName)
+	var fileStr = file_text_read_string(file)
+	var data = json_parse(fileStr)
+	
+	global.shipUpgrades = data.shipUpgrades
+	global.inventory = data.inventory
+	global.weapon = data.weapon
+	global.armor = data.armor
+	//time
+	global.initTime = data.time.init
+	global.checkedTime = data.time.checked
+	//player
+	global.playerName = data.player.name
+	global.roomLocation = data.player.room_location
+	global.xLoc = data.player.x_loc
+	global.yLoc = data.player.y_loc
+	global.buffs = data.player.buffs
+	//starfighter
+	global.starfighterLevel = data.starfighter.level
+	global.enemiesDestroyed = data.starfighter.enemies_destroyed
+	global.points = data.starfighter.points
+	global.missionsCompleted = data.starfighter.missions_completed
+	//overspace map
+	global.starfighterLocX = data.map.starfighter_loc_x
+	global.starfighterLocY = data.map.starfighter_loc_y
+	global.locationsVisible = data.map.locations_visible
+	//settings
+	global.difficulty = data.settings.difficulty
+	global.fullscreen = data.settings.fullscreen
+	global.resolution = data.settings.resolution
+	global.masterVol = data.settings.master_volume
+	global.sfxVol = data.settings.sfx_volume
+	global.musicVol = data.settings.music_volume
+}
 
+/*
+* Gets all saves so that they can be displayed in list
+* returns list of files as array of strings
+*/
 function getallSaves(){
 	var filelist = []
 	var i = 0;
@@ -60,4 +96,12 @@ function getallSaves(){
 	}
 	file_find_close()
 	return fileList
+}
+
+/*
+*checks if the user has a previous save. If they do, the continue button 
+*is highlighted indicating they can use it
+*/
+function canContinue(){
+	return false
 }
