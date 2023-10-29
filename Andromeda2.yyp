@@ -36,6 +36,8 @@
   "resources": [
     {"id":{"name":"save_manager_scr","path":"scripts/save_manager_scr/save_manager_scr.yy",},},
     {"id":{"name":"pause_manager_scr","path":"scripts/pause_manager_scr/pause_manager_scr.yy",},},
+    {"id":{"name":"roomTilest_spr","path":"sprites/roomTilest_spr/roomTilest_spr.yy",},},
+    {"id":{"name":"rooomTileset_ts","path":"tilesets/rooomTileset_ts/rooomTileset_ts.yy",},},
     {"id":{"name":"setting_manager_scr","path":"scripts/setting_manager_scr/setting_manager_scr.yy",},},
     {"id":{"name":"save_manager_obj","path":"objects/save_manager_obj/save_manager_obj.yy",},},
     {"id":{"name":"global_var_scr","path":"scripts/global_var_scr/global_var_scr.yy",},},
